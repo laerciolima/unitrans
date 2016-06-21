@@ -1,0 +1,27 @@
+*  {
+    margin:0;
+    padding:0;
+}
+
+
+h2 { font-family: Arial, sans-serif; color: #3399CC; font-size: 30px; font-weight: bold; border-bottom: 1px dashed #ccc; margin: 0px 0px 10px 0px;  }
+.geral {
+    min-height:100%;
+    position:relative;
+
+}
+.header{
+    background-color: #236B8E;
+    height: 70px;
+}
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background-color: #236B8E
+}
+
+.content {overflow:hidden; padding-bottom: 30px}
+.aside {width:200px;}
+.fleft {float:left;}
+.fright {float:right;}
