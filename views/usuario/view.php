@@ -1,6 +1,8 @@
+<button  onclick="javascript:history.back()" type="button" class="btn btn-default btn-sm" style="margin-top: 5px">
+                    < Voltar
+                </button>
 
-
-<h2>Usuario: <?php echo $usuario->getSenha();?></h2>
+<h2>Usuario: <?php echo $usuario->getLogin();?></h2>
 
 
 <table class="view">

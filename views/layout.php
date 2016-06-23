@@ -14,7 +14,7 @@
             <div class="header">
 
                 <div class="col-sm-2">
-                    logomarca    
+                    <img src="webroot/img/logo.png" width="50"/>
                 </div>
                 <div class="col-sm-8">
                     <div class="drop">
@@ -49,12 +49,26 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    login
+
+                    <div style="margin-top: 5px; color: white; float: right">
+                        <table>
+                            <tr>
+                                <td><img src="webroot/img/user.png" width="32" /></td>
+                                <td style="color: white">laerciolima</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button  onclick="javascript:history.back()" type="button" class="btn btn-danger btn-xs" style="margin-top: 0px; float: right">Sair</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
 
             </div>
             <div class="content container">
+
 
                 <?php require_once('routes.php'); ?>
 
