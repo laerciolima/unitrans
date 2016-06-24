@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/Usuario.php';
+require_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '/unitrans/models/Usuario.php');
 
 class UsuarioDAO {
 
@@ -32,7 +32,6 @@ class UsuarioDAO {
         $req->execute(array('id' => $id));
 
         return UsuarioDAO::popular($req->fetch());
-        
     }
 
     public static function delete($id) {
@@ -76,5 +75,16 @@ class UsuarioDAO {
         return $usuario;
     }
 
+    public static function login($login, $senha) {
+        // we make sure $id is an integer
+        require_once 'connection.php';
+        $req = Db::getInstance()->prepare('SELECT * FROM usuario WHERE login = :login and senha = :senha');
+        // the query was prepared, now we replace :id with our actual $id value
+        $req->bindValue(":login", $login);
+        $req->bindValue(":senha", $senha);
+        $req->execute();
+
+        return UsuarioDAO::popular($req->fetch());
+    }
 
 }

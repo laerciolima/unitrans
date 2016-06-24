@@ -1,30 +1,39 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 <!-- Where all the magic happens -->
 <!-- LOGIN FORM -->
 <center>
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">Unitrans</div>
+    
+<div class="text-center" style="padding:100px 0">
+    <?php if(isset($_GET['login'])){ ?>
+    <div style="background-color: #d7eafd; color: #ff4242 ">
+            <h4>Login/senha inválidos!</h4>
+        </div>
+	
+        
+    <?php } ?>
 	<!-- Main Form -->
+            
+        <div class="logo">Unitrans</div>
 	<div class="login-form-1">
-            <form id="login-form" class="text-left" method="post" action="../../index.php?controller=usuario&action=index">
+            <form id="login-form" class="text-left" method="post" action="../../controllers/LoginController.php">
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
-                                            <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="nome de usuário">
+                                            <input type="text" class="form-control" id="lg_username" name="login" placeholder="nome de usuário">
 					</div>
 					<div class="form-group">
 						
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="senha">
+						<input type="password" class="form-control" id="lg_password" name="senha" placeholder="senha">
 					</div>
 				</div>
 				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
 			</div>
 		</form>
 	</div>
+        
 	<!-- end:Main Form -->
 </div>
 
@@ -53,11 +62,23 @@ Last change	: 2015/03/27
 9. Misc
 -------------------------------------------------------------------*/
 /*=== 1. General Structure ===*/
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../webroot/font/varela.woff2);
+}
+
+
+*  {
+    margin:0;
+    padding:0;
+    font-family: myFirstFont;
+}
 html,
 body {
   background: #236B8E;
   padding: 10px;
-  font-family: 'Varela Round';
+  font-family: myFirstFont;
 }
 /*=== 2. Anchor Link ===*/
 a {

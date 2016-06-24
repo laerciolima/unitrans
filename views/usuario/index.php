@@ -1,7 +1,3 @@
-<?php $_SESSION['success'] = "foi";
-
-?>
-
 <h2>Lista de Usuarios</h2>
 <table id="example" class="display compact" cellspacing="0" width="100%">
 

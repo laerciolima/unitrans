@@ -4,8 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/unitrans/controllers/UsuarioController.php</file>
+            <file>file:/var/www/html/unitrans/webroot/css/estilo.css</file>
+            <file>file:/var/www/html/unitrans/views/usuario/index.php</file>
             <file>file:/var/www/html/unitrans/views/login/index.php</file>
+            <file>file:/var/www/html/unitrans/index.php</file>
             <file>file:/var/www/html/unitrans/routes.php</file>
+            <file>file:/var/www/html/unitrans/views/layout.php</file>
+            <file>file:/var/www/html/unitrans/models/UsuarioDAO.php</file>
+            <file>file:/var/www/html/unitrans/views/usuario/add.php</file>
+            <file>file:/var/www/html/unitrans/controllers/LoginController.php</file>
+            <file>file:/var/www/html/unitrans/views/usuario/view.php</file>
+            <file>file:/var/www/html/unitrans/webroot/css/menu.css</file>
         </group>
     </open-files>
 </project-private>

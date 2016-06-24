@@ -12,15 +12,23 @@
 
 
 <?php
-  require_once('connection.php');
+if(!isset($_SESSION)){
+    session_start();
+}
+require_once('connection.php');
+require_once 'controllers/LoginController.php';
+if (!LoginController::isLogged()) {
+    header("Location: views/login/index.php");
+    die();
+}
 
-  if (isset($_GET['controller']) && isset($_GET['action'])) {
+if (isset($_GET['controller']) && isset($_GET['action'])) {
     $controller = $_GET['controller'];
-    $action     = $_GET['action'];
-  } else {
+    $action = $_GET['action'];
+} else {
     $controller = 'pages';
-    $action     = 'home';
-  }
+    $action = 'home';
+}
 
-  require_once('views/layout.php');
+require_once('views/layout.php');
 ?>

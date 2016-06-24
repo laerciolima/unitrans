@@ -73,6 +73,11 @@ class UsuarioController {
         $usuario = UsuarioDAO::find(base64_decode($_GET['id']));
         require_once('views/usuario/edit.php');
     }
+    
+    
+    public function home(){
+        require_once 'views/usuario/home.php';;
+    }
 
 }
 

@@ -2,7 +2,8 @@
 
 function call($controller, $action) {
     require_once('controllers/' . ucfirst($controller) . 'Controller.php');
-    verificacoes();
+    if ($controller != "login")
+        verificacoes();
     switch ($controller) {
         case 'pages':
             $controller = new PagesController();
@@ -17,15 +18,19 @@ function call($controller, $action) {
             require_once('models/UsuarioDAO.php');
             $controller = new UsuarioController();
             break;
+        case 'login':
+            // we need the model to query the database later in the controller
+            require_once('models/UsuarioDAO.php');
+            $controller = new LoginController();
+            break;
     }
 
     $controller->{ $action }();
 }
 
 function verificacoes() {
-    if (!session_start()) {
-        session_start();
-    }
+    
+    
     if (isset($_SESSION['success'])) {
         ?>
         <div class="alert alert-success">
@@ -54,8 +59,9 @@ function verificacoes() {
 
 // we're adding an entry for the new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
-    'usuario' => ['index', 'add', 'edit', 'view'],
-    'posts' => ['index', 'show']);
+    'usuario' => ['index', 'add', 'edit', 'view', 'home'    ],
+    'login' => ['login', 'logout'],
+    'posts' => ['index', 'show' ]);
 
 if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
