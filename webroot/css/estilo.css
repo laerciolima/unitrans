@@ -26,7 +26,8 @@ h2 { font-family: Arial, sans-serif; color: #3399CC; font-size: 30px; font-weigh
     position:absolute;
     bottom:0;
     width:100%;
-    background-color: #236B8E
+    background-color: #236B8E;
+    color: white;
 }
 
 .content {overflow:hidden; padding-bottom: 30px}
