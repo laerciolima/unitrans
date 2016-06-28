@@ -18,6 +18,17 @@ function call($controller, $action) {
             require_once('models/UsuarioDAO.php');
             $controller = new UsuarioController();
             break;
+        case 'universidade':
+            // we need the model to query the database later in the controller
+            require_once('models/UniversidadeDAO.php');
+            $controller = new UniversidadeController();
+            break;
+        case 'estudante':
+            // we need the model to query the database later in the controller
+            require_once('models/EstudanteDAO.php');
+            require_once('models/UniversidadeDAO.php');
+            $controller = new EstudanteController();
+            break;
         case 'login':
             // we need the model to query the database later in the controller
             require_once('models/UsuarioDAO.php');
@@ -59,7 +70,9 @@ function verificacoes() {
 
 // we're adding an entry for the new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
-    'usuario' => ['index', 'add', 'edit', 'view', 'home'    ],
+    'usuario' => ['index', 'add', 'edit', 'view', 'home', 'delete'],
+    'universidade' => ['index', 'add', 'edit', 'view', 'delete'],
+    'estudante' => ['index', 'add', 'edit', 'view', 'delete'],
     'login' => ['login', 'logout'],
     'posts' => ['index', 'show' ]);
 

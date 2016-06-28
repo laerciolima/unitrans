@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-        <title>Tableless.com.br</title>
+        <title>UniTrans</title>
     </head>
 
     <body>
@@ -21,10 +21,10 @@
                         <ul class="drop_menu">
                             <li><a href='#'>Home</a>
                             </li>
-                            <li><a href='#'>Estudantes</a>
+                            <li><a href='?controller=estudante&action=index'>Estudantes</a>
                                 <ul>
-                                    <li><a href='#'>Listar</a></li>
-                                    <li><a href='#'>Adicionar</a></li>
+                                    <li><a href='?controller=estudante&action=index'>Listar</a></li>
+                                    <li><a href='?controller=estudante&action=add'>Adicionar</a></li>
                                 </ul>
                             </li>
                             <li><a href='#'>Ônibus</a>
@@ -37,6 +37,12 @@
                                 <ul>
                                     <li><a href='#'>Listar</a></li>
                                     <li><a href='#'>Adicionar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href='?controller=universidade&action=index'>Universidade</a>
+                                <ul>
+                                    <li><a href='?controller=universidade&action=index'>Listar</a></li>
+                                    <li><a href='?controller=universidade&action=add '>Adicionar</a></li>
                                 </ul>
                             </li>
                             <li><a href='?controller=usuario&action=index'>Usuários</a>
@@ -54,11 +60,11 @@
                         <table>
                             <tr>
                                 <td><img src="webroot/img/user.png" width="32" /></td>
-                                <td style="color: white"><?php  echo $_SESSION['login'];?></td>
+                                <td style="color: white"><?php echo $_SESSION['login']; ?></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button  onclick="location.href='?controller=login&action=logout'" type="button" class="btn btn-danger btn-xs" style="margin-top: 0px; float: right">Sair</button>
+                                <td><button  onclick="location.href = '?controller=login&action=logout'" type="button" class="btn btn-danger btn-xs" style="margin-top: 0px; float: right">Sair</button>
                                 </td>
                             </tr>
                         </table>
@@ -67,6 +73,7 @@
 
 
             </div>
+
             <div class="content container">
 
 
@@ -75,7 +82,9 @@
 
             </div>
             <div class="footer">
-                FOOTER
+                <center>
+                    Unitrans
+                </center>
             </div>
         </div>
 

@@ -8,6 +8,8 @@ class UsuarioController {
         $usuarios = UsuarioDAO::all();
         require_once('views/usuario/index.php');
     }
+    
+    
 
     public function delete() {
         // we store all the posts in a variable

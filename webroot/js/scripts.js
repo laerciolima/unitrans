@@ -3,6 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+function remover(url) {
+    var r = confirm("Esta ação irá remover o item e não será possivel recupera-lo");
+    if (r == true) {
+        location.href = url;
+    }
+}
+
 
 $(document).ready(function () {
     $('#example').DataTable({
@@ -31,3 +38,22 @@ $(document).ready(function () {
         }
     });
 });
+
+
+
+jQuery(function ($) {
+    $('#telefone').mask("(99) 9999-9999?9")
+            .focusout(function (event) {
+                var target, phone, element;
+                target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+                phone = target.value.replace(/\D/g, '');
+                element = $(target);
+                element.unmask();
+                if (phone.length > 10) {
+                    element.mask("(99) 99999-999?9");
+                } else {
+                    element.mask("(99) 9999-9999?9");
+                }
+            });
+});
+

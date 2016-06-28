@@ -1,14 +1,13 @@
 <?php
 
 require_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '/unitrans/models/Usuario.php');
-
 class UsuarioDAO {
 
     public static function all() {
         $lista = [];
 
         $req = Db::getInstance()->query('SELECT * FROM usuario');
-
+        
         // we create a list of Post objects from the database results
         foreach ($req->fetchAll() as $linha) {
             $usuario = new Usuario();
