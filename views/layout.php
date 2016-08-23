@@ -10,8 +10,8 @@
     </head>
 
     <body>
-        <div class="geral">
-            <div class="header">
+        <div class="geral ">
+            <div class="header container-fluid">
 
                 <div class="col-sm-2">
                     <img src="webroot/img/logo.png" width="50"/>
@@ -42,7 +42,7 @@
                             <li><a href='?controller=universidade&action=index'>Universidade</a>
                                 <ul>
                                     <li><a href='?controller=universidade&action=index'>Listar</a></li>
-                                    <li><a href='?controller=universidade&action=add '>Adicionar</a></li>
+                                    <li><a href='?controller=universidade&action=add'>Adicionar</a></li>
                                 </ul>
                             </li>
                             <li><a href='?controller=usuario&action=index'>Usuários</a>

@@ -57,3 +57,19 @@ jQuery(function ($) {
             });
 });
 
+function gerarSenhaEstudante(){
+    var senha = generatePassword(5);
+    $("#senha_modal").html(senha);
+    $("#senha").val(senha);
+}
+
+
+function generatePassword(length) {
+    
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}

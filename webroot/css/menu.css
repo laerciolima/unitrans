@@ -41,4 +41,4 @@
 	text-indent:15px;
 	background-color:white;
 }
-.drop_menu li:hover ul li a:hover { background:#005555; }
+.drop_menu li:hover ul li a:hover { background-color: #e0e0e0; }

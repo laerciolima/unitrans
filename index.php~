@@ -21,7 +21,7 @@ if(!isset($_SESSION)){
 require_once('connection.php');
 require_once 'controllers/LoginController.php';
 if (!LoginController::isLogged()) {
-    header("Location: views/login/index.php");
+    //header("Location: views/login/index.php");
     //die();
 }
 

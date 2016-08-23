@@ -3,25 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/unitrans/views/universidade/index.php</file>
-            <file>file:/var/www/html/unitrans/index.php</file>
-            <file>file:/var/www/html/unitrans/views/universidade/add.php</file>
-            <file>file:/var/www/html/unitrans/views/posts/index.php</file>
-            <file>file:/var/www/html/unitrans/views/usuario/add.php</file>
-            <file>file:/var/www/html/unitrans/controllers/LoginController.php</file>
-            <file>file:/var/www/html/unitrans/controllers/UsuarioController.php</file>
-            <file>file:/var/www/html/unitrans/webroot/css/estilo.css</file>
-            <file>file:/var/www/html/unitrans/views/usuario/index.php</file>
-            <file>file:/var/www/html/unitrans/webroot/js/scripts.js</file>
             <file>file:/var/www/html/unitrans/routes.php</file>
-            <file>file:/var/www/html/unitrans/views/layout.php</file>
-            <file>file:/var/www/html/unitrans/models/UsuarioDAO.php</file>
-            <file>file:/var/www/html/unitrans/views/estudante/edit.php</file>
             <file>file:/var/www/html/unitrans/views/estudante/add.php</file>
-            <file>file:/var/www/html/unitrans/controllers/EstudanteController.php</file>
-            <file>file:/var/www/html/unitrans/views/usuario/view.php</file>
-            <file>file:/var/www/html/unitrans/webroot/css/menu.css</file>
-            <file>file:/var/www/html/unitrans/views/estudante/index.php</file>
+            <file>file:/var/www/html/unitrans/controllers/LoginController.php</file>
         </group>
     </open-files>
 </project-private>

@@ -28,6 +28,7 @@
 						
 						<input type="password" class="form-control" id="lg_password" name="senha" placeholder="senha">
 					</div>
+                                    <input type="hidden" name="login-request" />
 				</div>
 				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
 			</div>
