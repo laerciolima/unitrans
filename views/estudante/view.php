@@ -48,7 +48,7 @@
     </tr>
     <tr align="left">
         <th>fk id univerisade</th>
-        <td><?php echo $estudante->getfk_id_univerisade()?></td>
+        <td><?php echo $estudante->getfk_id_universidade()?></td>
     </tr>
     <tr align="left">
         <th>Horario de ida</th>

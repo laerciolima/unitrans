@@ -51,9 +51,9 @@
             <input type="text" class="form-control" value="<?php echo $estudante->getCurso(); ?>" name="curso" id="curso" placeholder="Digite o curso">
         </div>
     </div><div class="form-group">
-        <label class="control-label col-sm-2" for="fk_id_univerisade">fk_id_univerisade:</label>
+        <label class="control-label col-sm-2" for="fk_id_universidade">fk_id_universidade:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" value="<?php echo $estudante->getfk_id_univerisade(); ?>" name="fk_id_univerisade" id="fk_id_univerisade" placeholder="Digite o fk_id_univerisade">
+            <input type="text" class="form-control" value="<?php echo $estudante->getfk_id_universidade(); ?>" name="fk_id_universidade" id="fk_id_universidade" placeholder="Digite o fk_id_universidade">
         </div>
     </div><div class="form-group">
         <label class="control-label col-sm-2" for="horario_de_ida">Horario_de_ida:</label>

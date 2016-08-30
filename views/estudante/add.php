@@ -18,7 +18,7 @@
     </div><div class="form-group">
         <label class="control-label col-sm-2" for="data_de_nascimento">Data_de_nascimento:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="data_de_nascimento" id="data_de_nascimento" placeholder="Digite o data_de_nascimento">
+            <input type="date" class="form-control" name="data_de_nascimento" id="data_de_nascimento" placeholder="Digite o data_de_nascimento">
         </div>
     </div><div class="form-group">
         <label class="control-label col-sm-2" for="telefone">Telefone:</label>
@@ -51,19 +51,26 @@
             <input type="text" class="form-control" name="curso" id="curso" placeholder="Digite o curso">
         </div>
     </div><div class="form-group">
-        <label class="control-label col-sm-2" for="fk_id_univerisade">fk_id_univerisade:</label>
+        <label class="control-label col-sm-2" for="fk_id_universidade">Universidade:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="fk_id_univerisade" id="fk_id_univerisade" placeholder="Digite o fk_id_univerisade">
+            <select class="form-control" name="fk_id_universidade" id="fk_id_universidade">
+                
+                <?php foreach ($universidades as $universidade) { ?>
+                <option value="<?php echo $universidade->getId();?>"><?php echo $universidade->getNome();?></option>
+
+                <?php } ?>
+            </select>
+            
         </div>
     </div><div class="form-group">
-        <label class="control-label col-sm-2" for="horario_de_ida">Horario_de_ida:</label>
+        <label class="control-label col-sm-2" for="horario_de_ida">Horario de ida:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="horario_de_ida" id="horario_de_ida" placeholder="Digite o horario_de_ida">
+            <input type="time" class="form-control" name="horario_de_ida" id="horario_de_ida" placeholder="Digite o horario de ida">
         </div>
     </div><div class="form-group">
-        <label class="control-label col-sm-2" for="horario_de_volta">Horario_de_volta:</label>
+        <label class="control-label col-sm-2" for="horario_de_volta">Horario de volta:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="horario_de_volta" id="horario_de_volta" placeholder="Digite o horario_de_volta">
+            <input type="time" class="form-control" name="horario_de_volta" id="horario_de_volta" placeholder="Digite o horario_de_volta">
         </div>
     </div><div class="form-group">
         <label class="control-label col-sm-2" for="login">Login:</label>
@@ -73,11 +80,35 @@
     </div><div class="form-group">
         <label class="control-label col-sm-2" for="senha">Senha:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" name="senha" id="senha" placeholder="Digite o senha">
+            <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite a senha">
+            
         </div>
+        <button type="button" class="btn btn-default" onclick="gerarSenhaEstudante()" data-toggle="modal" data-target="#myModal">Gerar senha</button>
     </div>  <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Enviar</button>
     </div>
   </div>
 </form>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Senha   </h4>
+      </div>
+      <div class="modal-body">
+          Senha gerada: <b><span id="senha_modal"></span></b>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

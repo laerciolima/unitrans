@@ -11,7 +11,7 @@ class Estudante{
     private $bairro;
     private $cidade;
     private $curso;
-    private $fk_id_univerisade;
+    private $fk_id_universidade;
     private $horario_de_ida;
     private $horario_de_volta;
     private $login;
@@ -97,12 +97,12 @@ function setId ($id){
         $this->curso = $curso;
     }
 
-    public function getfk_id_univerisade() {
-        return $this->fk_id_univerisade;
+    public function getfk_id_universidade() {
+        return $this->fk_id_universidade;
     }
 
-    public function setfk_id_univerisade($fk_id_univerisade) {
-        $this->fk_id_univerisade = $fk_id_univerisade;
+    public function setfk_id_universidade($fk_id_universidade) {
+        $this->fk_id_universidade = $fk_id_universidade;
     }
 
     public function getHorario_de_ida() {

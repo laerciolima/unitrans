@@ -54,7 +54,7 @@
                 <td><?php echo $estudante->getBairro(); ?></td>
                 <td><?php echo $estudante->getCidade(); ?></td>
                 <td><?php echo $estudante->getCurso(); ?></td>
-                <td><?php echo $estudante->getfk_id_univerisade(); ?></td>
+                <td><?php echo $estudante->getfk_id_universidade(); ?></td>
                 <td><?php echo $estudante->getHorario_de_ida(); ?></td>
                 <td><?php echo $estudante->getHorario_de_volta(); ?></td>
                 <td><?php echo $estudante->getLogin(); ?></td>
