@@ -11,9 +11,11 @@
  *
  * @author laercio
  */
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login-request'])) {
-    echo "teste";
-    LoginController::login();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['login-request']))
+        LoginController::login();
+    else if (isset($_POST['login-mobile']))
+        LoginController::login_mobile();
 }
 
 class LoginController {
@@ -32,6 +34,16 @@ class LoginController {
         header("Location: ../views/login/index.php?login=error");
     }
 
+    static function login_mobile() {
+
+        $usuario = self::verificarLogin($_POST['login'], $_POST['senha']);
+        if ($usuario != "") {
+            echo "true";
+        } else {
+            echo "false";
+        }
+    }
+
     static function isLogged() {
         if (!isset($_SESSION['login'])) {
             return false;
@@ -40,14 +52,12 @@ class LoginController {
             return true;
         }
         return true;
-
     }
 
     public function logout() {
         unset($_SESSION['login']);
         echo "<script> location.href = 'views/login/index.php' </script>";
         die();
-        
     }
 
     public static function verificarLogin($login, $senha) {

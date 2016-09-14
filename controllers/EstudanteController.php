@@ -3,15 +3,12 @@
 class EstudanteController {
 
     public function index() {
-        // we store all the posts in a variable
 
         $estudantes = EstudanteDAO::all();
         require_once('views/estudante/index.php');
     }
 
     public function delete() {
-        // we store all the posts in a variable
-
         if (!EstudanteDAO::delete(base64_decode($_GET['id']))) {
             $_SESSION['error'] = "Ocorreu um erro ao deletar o estudante!";
         } else {
@@ -25,7 +22,6 @@ class EstudanteController {
         if (!isset($_GET['id']))
             return call('page', 'error');
 
-        // we use the given id to get the right post
         $estudante = EstudanteDAO::find($_GET['id']);
         require_once('views/estudante/view.php');
     }
@@ -51,6 +47,7 @@ class EstudanteController {
             $estudante->setSenha($_POST["senha"]);
             if (EstudanteDAO::add($estudante)) {
                 $_SESSION['success'] = "Estudante cadastrado com sucesso!";
+                mkdir("storage/user/".$estudante->getCpf());
                 header("Location: ?controller=estudante&action=index");
                 die();
             } else {
@@ -93,7 +90,6 @@ class EstudanteController {
         if (!isset($_GET['id']))
             return call('page', 'error');
 
-        // we use the given id to get the right post"
 
         $estudante = EstudanteDAO::find(base64_decode($_GET['id']));
         require_once('views/estudante/edit.php');
