@@ -33,13 +33,13 @@ class MotoristaController {
     }
 
     public function add() {
-        if (isset($_POST['placa'])) {
+        if (isset($_POST['iditinerario'])) {
 
 
             $motorista = new Motorista();
-        $motorista->setEndereco($_POST["endereco"]);
-        $motorista->setPlaca($_POST["placa"]);
-        $motorista->setCheckpoint($_POST["checkpoint"]);
+        $motorista->setIdonibus($_POST["idonibus"]);
+        $motorista->setIditinerario($_POST["iditinerario"]);
+        $motorista->setNome($_POST["nome"]);
             if(MotoristaDAO::add($motorista)){
                 $_SESSION['success'] = "Motorista cadastrado com sucesso!";
                 echo "<meta http-equiv=\"Refresh\" content=\"0; url=?controller=motorista&action=index\">";
@@ -53,12 +53,12 @@ class MotoristaController {
 
     public function edit() {
 
-        if (isset($_POST['placa'])) {
+        if (isset($_POST['iditinerario'])) {
             $motorista = new Motorista();
             $motorista->setId(base64_decode($_GET['id']));
-        $motorista->setEndereco($_POST["endereco"]);
-        $motorista->setPlaca($_POST["placa"]);
-        $motorista->setCheckpoint($_POST["checkpoint"]);
+        $motorista->setIdonibus($_POST["idonibus"]);
+        $motorista->setIditinerario($_POST["iditinerario"]);
+        $motorista->setNome($_POST["nome"]);
             
             if (!MotoristaDAO::edit($motorista)) {
                 $_SESSION['error'] = "Ocorreu um erro ao editar!";

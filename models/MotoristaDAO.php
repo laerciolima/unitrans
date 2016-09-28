@@ -14,9 +14,9 @@ class MotoristaDAO {
             $motorista = new Motorista();
 
             $motorista->setId($linha['id']);
-            $motorista->setEndereco($linha["endereco"]);
-            $motorista->setPlaca($linha["placa"]);
-            $motorista->setCheckpoint($linha["checkpoint"]);
+            $motorista->setIdonibus($linha["idonibus"]);
+            $motorista->setIditinerario($linha["iditinerario"]);
+            $motorista->setNome($linha["nome"]);
 
             $lista[] = $motorista;
         }
@@ -51,21 +51,21 @@ class MotoristaDAO {
     public static function add(Motorista $motorista) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("INSERT INTO motorista (endereco,placa,checkpoint) VALUES (:endereco,:placa,:checkpoint)");
-        $req->bindValue(":endereco", $motorista->getEndereco());
-        $req->bindValue(":placa", $motorista->getPlaca());
-        $req->bindValue(":checkpoint", $motorista->getCheckpoint());
+        $req = Db::getInstance()->prepare("INSERT INTO motorista (idonibus,iditinerario,nome) VALUES (:idonibus,:iditinerario,:nome)");
+        $req->bindValue(":idonibus", $motorista->getIdonibus());
+        $req->bindValue(":iditinerario", $motorista->getIditinerario());
+        $req->bindValue(":nome", $motorista->getNome());
         return $req->execute();
     }
 
     public static function edit(Motorista $motorista) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("UPDATE motorista SET endereco=:endereco,placa=:placa,checkpoint=:checkpoint WHERE id=:id");
+        $req = Db::getInstance()->prepare("UPDATE motorista SET idonibus=:idonibus,iditinerario=:iditinerario,nome=:nome WHERE id=:id");
         $req->bindValue(":id", $motorista->getId());
-        $req->bindValue(":endereco", $motorista->getEndereco());
-        $req->bindValue(":placa", $motorista->getPlaca());
-        $req->bindValue(":checkpoint", $motorista->getCheckpoint());
+        $req->bindValue(":idonibus", $motorista->getIdonibus());
+        $req->bindValue(":iditinerario", $motorista->getIditinerario());
+        $req->bindValue(":nome", $motorista->getNome());
         return $req->execute();
     }
 
@@ -73,9 +73,9 @@ class MotoristaDAO {
         $motorista = new Motorista();
 
         $motorista->setId($linha['id']);
-        $motorista->setEndereco($linha['endereco']);
-        $motorista->setPlaca($linha['placa']);
-        $motorista->setCheckpoint($linha['checkpoint']);
+        $motorista->setIdonibus($linha['idonibus']);
+        $motorista->setIditinerario($linha['iditinerario']);
+        $motorista->setNome($linha['nome']);
 
         return $motorista;
     }

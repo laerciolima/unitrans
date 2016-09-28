@@ -5,27 +5,27 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Endereco</th>
-            <th>Placa</th>
-            <th>Checkpoint</th>
+            <th>Idonibus</th>
+            <th>Iditinerario</th>
+            <th>Nome</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tfoot>
         <tr>
             <th>ID</th>
-            <th>Endereco</th>
-            <th>Placa</th>
-            <th>Checkpoint</th>
+            <th>Idonibus</th>
+            <th>Iditinerario</th>
+            <th>Nome</th>
             <th>Ações</th>
         </tr>
     </tfoot>
     <tbody>
         <?php foreach ($motoristas as $motorista) { ?>
             <tr>
-                <td><?php echo $motorista->getId();?> </td>                <td><a href="?controller=motorista&action=view&id=<?php echo $motorista->getId();?>"><?php echo $motorista->getEndereco(); ?></a></td>
-                <td><?php echo $motorista->getPlaca(); ?></td>
-                <td><?php echo $motorista->getCheckpoint(); ?></td>
+                <td><?php echo $motorista->getId();?> </td>                <td><a href="?controller=motorista&action=view&id=<?php echo $motorista->getId();?>"><?php echo $motorista->getIdonibus(); ?></a></td>
+                <td><?php echo $motorista->getIditinerario(); ?></td>
+                <td><?php echo $motorista->getNome(); ?></td>
                 <td><button type="button" onclick="location.href='?controller=motorista&action=edit&id=<?php echo base64_encode($motorista->getId());?>';" class="btn btn-default btn-xs">Editar</button>
                     <button type="button" onclick="javascript:remover('?controller=motorista&action=delete&id=<?php echo base64_encode($motorista->getId());?>');" class="btn btn-danger btn-xs">Remover</button>
                     

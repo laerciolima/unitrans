@@ -2,9 +2,9 @@
 
 class Motorista{
     private $id;
-    private $endereco;
-    private $placa;
-    private $checkpoint;
+    private $idonibus;
+    private $iditinerario;
+    private $nome;
     
 function setId ($id){
         
@@ -14,28 +14,28 @@ function setId ($id){
         
         return $this->id;
     }
-    public function getEndereco() {
-        return $this->endereco;
+    public function getIdonibus() {
+        return $this->idonibus;
     }
 
-    public function setEndereco($endereco) {
-        $this->endereco = $endereco;
+    public function setIdonibus($idonibus) {
+        $this->idonibus = $idonibus;
     }
 
-    public function getPlaca() {
-        return $this->placa;
+    public function getIditinerario() {
+        return $this->iditinerario;
     }
 
-    public function setPlaca($placa) {
-        $this->placa = $placa;
+    public function setIditinerario($iditinerario) {
+        $this->iditinerario = $iditinerario;
     }
 
-    public function getCheckpoint() {
-        return $this->checkpoint;
+    public function getNome() {
+        return $this->nome;
     }
 
-    public function setCheckpoint($checkpoint) {
-        $this->checkpoint = $checkpoint;
+    public function setNome($nome) {
+        $this->nome = $nome;
     }
 
 }

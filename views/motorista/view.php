@@ -1,7 +1,7 @@
 
 <button  onclick="javascript:history.back()" type="button" class="btn btn-default btn-sm" style="margin-top: 5px">
                     < Voltar
-                </button><h2>Motorista: <?php echo $motorista->getEndereco();?></h2>
+                </button><h2>Motorista: <?php echo $motorista->getIdonibus();?></h2>
 
 
 <table class="view">
@@ -11,16 +11,16 @@
         <td><?php echo $motorista->getId() ?></td>
       </tr>
     <tr align="left">
-        <th>Endereco</th>
-        <td><?php echo $motorista->getEndereco()?></td>
+        <th>Idonibus</th>
+        <td><?php echo $motorista->getIdonibus()?></td>
     </tr>
     <tr align="left">
-        <th>Placa</th>
-        <td><?php echo $motorista->getPlaca()?></td>
+        <th>Iditinerario</th>
+        <td><?php echo $motorista->getIditinerario()?></td>
     </tr>
     <tr align="left">
-        <th>Checkpoint</th>
-        <td><?php echo $motorista->getCheckpoint()?></td>
+        <th>Nome</th>
+        <td><?php echo $motorista->getNome()?></td>
     </tr>
     </tbody>
   </table>
