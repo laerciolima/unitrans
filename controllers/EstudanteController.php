@@ -4,12 +4,12 @@ if(isset($_GET['metodo'])){
     @include_once '../connection.php';
         require '../models/Estudante.php';
         require '../models/EstudanteDAO.php';
+        require '../models/Universidade.php';
+        require '../models/UniversidadeDAO.php';
     EstudanteController::find();
 }
 
 class EstudanteController {
-
-
 
     public function index() {
 
@@ -43,8 +43,6 @@ class EstudanteController {
             return call('page', 'error');
 
         $estudante = EstudanteDAO::findWithStatus($_GET['id']);
-        echo "<pre>";
-        //print_r($estudante);
 
         if(isset($estudante)){
             for($i = 0; $i < count($estudante); $i++){
@@ -52,12 +50,17 @@ class EstudanteController {
             }
             echo json_encode($estudante);
         }else{
+
             $estudante = EstudanteDAO::find($_GET['id']);
+            
             $array['nome_aluno'] = $estudante->getNome();
             $array['data_de_nascimento'] = $estudante->getData_de_nascimento();
             $array['horario_de_ida'] = $estudante->getHorario_de_ida();
             $array['horario_de_volta'] = $estudante->getHorario_de_volta();
-            $array['universidade'] = $estudante->getFk_id_universidade();
+
+            $universidade = UniversidadeDAO::find($estudante->getFk_id_universidade());
+        
+            $array['universidade'] = $universidade->getNome();
             $array['foto'] = "unitrans/storage/user/".$estudante->getCpf()."/".$estudante->getFoto();
             $array['status'] = 0;
 
