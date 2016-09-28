@@ -29,6 +29,34 @@ function call($controller, $action) {
             require_once('models/UniversidadeDAO.php');
             $controller = new EstudanteController();
             break;
+
+
+		case 'motorista':
+            // we need the model to query the database later in the controller
+            require_once('models/MotoristaDAO.php');
+            $controller = new MotoristaController();
+            break;
+        case 'ponto':
+            // we need the model to query the database later in the controller
+            require_once('models/PontoDAO.php');
+            $controller = new PontoController();
+            break;
+        case 'boleto':
+            // we need the model to query the database later in the controller
+            require_once('models/BoletoDAO.php');
+            $controller = new BoletoController();
+            break;
+        case 'itinerario':
+            // we need the model to query the database later in the controller
+            require_once('models/ItinerarioDAO.php');
+            $controller = new ItinerarioController();
+            break; 
+        case 'onibus':
+            // we need the model to query the database later in the controller
+            require_once('models/OnibusDAO.php');
+            $controller = new OnibusController();
+            break; 
+
         case 'comprovante':
             // we need the model to query the database later in the controller
             require_once('models/ComprovanteDAO.php');
@@ -80,6 +108,11 @@ $controllers = array('pages' => ['home', 'error'],
     'estudante' => ['index', 'add', 'edit', 'view', 'delete'],
     'comprovante' => ['index', 'add', 'edit', 'view', 'delete'],
     'login' => ['login', 'logout'],
+	'motorista' => ['index', 'add', 'edit', 'view', 'delete'],
+    'ponto' => ['index', 'add', 'edit', 'view', 'delete'],
+    'boleto' => ['index', 'add', 'edit', 'view', 'delete'],
+    'itinerario' => ['index', 'add', 'edit', 'view', 'delete'],
+    'onibus' => ['index', 'add', 'edit', 'view', 'delete'],
     'posts' => ['index', 'show' ]);
 
 if (array_key_exists($controller, $controllers)) {

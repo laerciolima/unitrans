@@ -1,6 +1,6 @@
 <?php
 
-@include_once  'models/Universidade.php';
+@include_once 'models/Universidade.php';
 
 class UniversidadeDAO {
 

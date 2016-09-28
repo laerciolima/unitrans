@@ -29,8 +29,8 @@
                             </li>
                             <li><a href='#'>Ônibus</a>
                                 <ul>
-                                    <li><a href='#'>Listar</a></li>
-                                    <li><a href='#'>Adicionar</a></li>
+                                    <li><a href='?controller=onibus&action=index'>Listar</a></li>
+                                    <li><a href='?controller=onibus&action=add'>Adicionar</a></li>
                                 </ul>
                             </li>
                             <li><a href='#'>Motoristas</a>
