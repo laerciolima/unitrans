@@ -4,7 +4,14 @@
 
 <h2>Usuario: <?php echo $usuario->getLogin();?></h2>
 
+<?php
 
+    $teste['id'] = 1;
+    $teste['nome'] = "Luiz Claudio";
+    
+    echo json_encode($teste);
+
+?>
 <table class="view">
     <tbody>
       <tr>

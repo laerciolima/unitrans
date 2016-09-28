@@ -4,7 +4,7 @@
 
 
 
-<form method="post" action="?controller=estudante&action=add" class="form-horizontal" role="form">
+<form method="post" action="?controller=estudante&action=add" class="form-horizontal" role="form" enctype="multipart/form-data">
 <div class="form-group">
         <label class="control-label col-sm-2" for="nome">Nome:</label>
         <div class="col-sm-4">
@@ -54,13 +54,13 @@
         <label class="control-label col-sm-2" for="fk_id_universidade">Universidade:</label>
         <div class="col-sm-4">
             <select class="form-control" name="fk_id_universidade" id="fk_id_universidade">
-                
+
                 <?php foreach ($universidades as $universidade) { ?>
                 <option value="<?php echo $universidade->getId();?>"><?php echo $universidade->getNome();?></option>
 
                 <?php } ?>
             </select>
-            
+
         </div>
     </div><div class="form-group">
         <label class="control-label col-sm-2" for="horario_de_ida">Horario de ida:</label>
@@ -72,7 +72,16 @@
         <div class="col-sm-4">
             <input type="time" class="form-control" name="horario_de_volta" id="horario_de_volta" placeholder="Digite o horario_de_volta">
         </div>
-    </div><div class="form-group">
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="senha">Foto:</label>
+        <div class="col-sm-4">
+            <input type="file" class="form-control" name="foto" id="foto"/>
+
+        </div>
+
+    </div>
+    <div class="form-group">
         <label class="control-label col-sm-2" for="login">Login:</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" name="login" id="login" placeholder="Digite o login">
@@ -81,16 +90,15 @@
         <label class="control-label col-sm-2" for="senha">Senha:</label>
         <div class="col-sm-4">
             <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite a senha">
-            
+
         </div>
         <button type="button" class="btn btn-default" onclick="gerarSenhaEstudante()" data-toggle="modal" data-target="#myModal">Gerar senha</button>
-    </div>  <div class="form-group"> 
+    </div>  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Enviar</button>
     </div>
   </div>
 </form>
-
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">

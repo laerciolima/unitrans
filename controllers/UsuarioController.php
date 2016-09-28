@@ -1,6 +1,8 @@
 <?php
 
 class UsuarioController {
+    
+    
 
     public function index() {
         // we store all the posts in a variable
@@ -29,6 +31,17 @@ class UsuarioController {
 
         // we use the given id to get the right post
         $usuario = UsuarioDAO::find($_GET['id']);
+        require_once('views/usuario/view.php');
+    }
+
+    public function find() {
+        if (!isset($_GET['id']))
+            return call('page', 'error');
+
+        // we use the given id to get the right post
+        $usuario = UsuarioDAO::find($_GET['id']);
+        
+        
         require_once('views/usuario/view.php');
     }
 
@@ -66,6 +79,7 @@ class UsuarioController {
                 die();
             }
         }
+        
 
         if (!isset($_GET['id']))
             return call('page', 'error');
