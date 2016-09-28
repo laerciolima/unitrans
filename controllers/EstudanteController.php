@@ -44,7 +44,7 @@ class EstudanteController {
 
         $estudante = EstudanteDAO::findWithStatus($_GET['id']);
         echo "<pre>";
-        print_r($estudante);
+        //print_r($estudante);
 
         if(isset($estudante)){
             for($i = 0; $i < count($estudante); $i++){

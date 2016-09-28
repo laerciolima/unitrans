@@ -37,7 +37,7 @@ class ComprovanteController {
     }
 
     public function view() {
-        if (!isset($_GET['id']))
+        if (!isset($_GET['id']))    
             return call('page', 'error');
 
         // we use the given id to get the right post
