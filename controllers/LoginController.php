@@ -23,7 +23,7 @@ class LoginController {
     static function login() {
 
         $usuario = self::verificarLogin($_POST['login'], $_POST['senha']);
-        if ($usuario != "") {
+        if ($usuario['login'] != "") {
             session_start();
             $_SESSION['login'] = $usuario;
 
@@ -37,10 +37,10 @@ class LoginController {
     static function login_mobile() {
 
         $usuario = self::verificarLogin($_POST['login'], $_POST['senha']);
-        if ($usuario != "") {
-            echo "true";
+        if ($usuario['login'] != "") {
+            echo $usuario['id'];
         } else {
-            echo "false";
+            echo "0";
         }
     }
 
@@ -70,7 +70,7 @@ class LoginController {
         $req->execute();
         $linha = $req->fetch();
 
-        return $linha['login'];
+        return $linha;
     }
 
 }
