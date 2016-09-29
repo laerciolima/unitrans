@@ -35,8 +35,26 @@
                             </li>
                             <li><a href='#'>Motoristas</a>
                                 <ul>
-                                    <li><a href='#'>Listar</a></li>
-                                    <li><a href='#'>Adicionar</a></li>
+                                    <li><a href='?controller=motorista&action=index'>Listar</a></li>
+                                    <li><a href='?controller=motorista&action=add'>Adicionar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href='#'>Itinerário</a>
+                                <ul>
+                                    <li><a href='?controller=itinerario&action=index'>Listar</a></li>
+                                    <li><a href='?controller=itinerario&action=add'>Adicionar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href='#'>Ponto</a>
+                                <ul>
+                                    <li><a href='?controller=ponto&action=index'>Listar</a></li>
+                                    <li><a href='?controller=ponto&action=add'>Adicionar</a></li>
+                                </ul>
+                            </li>
+                            <li><a href='#'>Boleto</a>
+                                <ul>
+                                    <li><a href='?controller=boleto&action=index'>Listar</a></li>
+                                    <li><a href='?controller=boleto&action=add'>Adicionar</a></li>
                                 </ul>
                             </li>
                             <li><a href='?controller=universidade&action=index'>Universidade</a>
