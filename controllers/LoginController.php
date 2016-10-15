@@ -63,7 +63,7 @@ class LoginController {
     public static function verificarLogin($login, $senha) {
         // we make sure $id is an integer
         @include_once '../connection.php';
-        $req = Db::getInstance()->prepare('SELECT * FROM usuario WHERE login = :login and senha = :senha');
+        $req = Db::getInstance()->prepare('SELECT * FROM estudante WHERE login = :login and senha = :senha');
         // the query was prepared, now we replace :id with our actual $id value
         $req->bindValue(":login", $login);
         $req->bindValue(":senha", $senha);
