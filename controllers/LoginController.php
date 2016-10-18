@@ -36,7 +36,7 @@ class LoginController {
 
     static function login_mobile() {
 
-        $usuario = self::verificarLogin($_POST['login'], $_POST['senha']);
+        $usuario = self::verificarLoginMobile($_POST['login'], $_POST['senha']);
         if ($usuario['login'] != "") {
             echo $usuario['id'];
         } else {
@@ -63,7 +63,7 @@ class LoginController {
     public static function verificarLogin($login, $senha) {
         // we make sure $id is an integer
         @include_once '../connection.php';
-        $req = Db::getInstance()->prepare('SELECT * FROM estudante WHERE login = :login and senha = :senha');
+        $req = Db::getInstance()->prepare('SELECT * FROM usuario WHERE login = :login and senha = :senha');
         // the query was prepared, now we replace :id with our actual $id value
         $req->bindValue(":login", $login);
         $req->bindValue(":senha", $senha);
@@ -72,5 +72,17 @@ class LoginController {
 
         return $linha;
     }
+
+	public static function verificarLoginMobile($login, $senha) {
+        // we make sure $id is an integer
+        @include_once '../connection.php';
+        $req = Db::getInstance()->prepare('SELECT * FROM estudante WHERE login = :login and senha = :senha');
+        // the query was prepared, now we replace :id with our actual $id value
+        $req->bindValue(":login", $login);
+        $req->bindValue(":senha", $senha);
+        $req->execute();
+        $linha = $req->fetch();
+
+      
 
 }
