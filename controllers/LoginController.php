@@ -73,7 +73,7 @@ class LoginController {
         return $linha;
     }
 
-	public static function verificarLoginMobile($login, $senha) {
+    public static function verificarLoginMobile($login, $senha) {
         // we make sure $id is an integer
         @include_once '../connection.php';
         $req = Db::getInstance()->prepare('SELECT * FROM estudante WHERE login = :login and senha = :senha');
@@ -82,7 +82,6 @@ class LoginController {
         $req->bindValue(":senha", $senha);
         $req->execute();
         $linha = $req->fetch();
-
-      
+    }
 
 }
