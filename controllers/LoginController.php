@@ -83,7 +83,7 @@ class LoginController {
         $req->bindValue(":senha", $senha);
         $req->execute();
         return $req->fetch();
-        
+
     }
 
 }
