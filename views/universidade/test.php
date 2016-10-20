@@ -24,7 +24,7 @@ echo $lat." - - - ".$long;
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
   <title>Google Maps Multiple Markers</title> 
-  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyBWX65SWnShDhbin6V-87H4hroL8T_ks4s&sensor=false" 
           type="text/javascript"></script>
 </head> 
 <body>

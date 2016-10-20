@@ -23,11 +23,12 @@ class LoginController {
     static function login() {
 
         $usuario = self::verificarLogin($_POST['login'], $_POST['senha']);
+        print_r($usuario);
         if ($usuario['login'] != "") {
             session_start();
-            $_SESSION['login'] = $usuario;
+            $_SESSION['login'] = $usuario['login'];
 
-            $_SESSION[md5($usuario)] = $usuario;
+            $_SESSION[md5($usuario['login'])] = $usuario['login'];
             header("Location: ../?controller=usuario&action=home");
             die();
         }
@@ -35,8 +36,8 @@ class LoginController {
     }
 
     static function login_mobile() {
-
         $usuario = self::verificarLoginMobile($_POST['login'], $_POST['senha']);
+        
         if ($usuario['login'] != "") {
             echo $usuario['id'];
         } else {
@@ -81,7 +82,8 @@ class LoginController {
         $req->bindValue(":login", $login);
         $req->bindValue(":senha", $senha);
         $req->execute();
-        $linha = $req->fetch();
+        return $req->fetch();
+        
     }
 
 }

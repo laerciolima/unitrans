@@ -16,6 +16,13 @@ class EstudanteController {
         $estudantes = EstudanteDAO::all();
         require_once('views/estudante/index.php');
     }
+    
+    
+    public function mapa() {
+
+        $estudantes = EstudanteDAO::all();
+        require_once('views/estudante/mapa.php');
+    }
 
     public function delete() {
         if (!EstudanteDAO::delete(base64_decode($_GET['id']))) {
@@ -169,7 +176,7 @@ class EstudanteController {
                 $_SESSION['success'] = "Estudante cadastrado com sucesso!";
                 mkdir("storage/user/".$estudante->getCpf());
                 move_uploaded_file($foto["tmp_name"], $caminho_imagem);
-                header("Location: ?controller=estudante&action=index");
+                echo "<meta http-equiv=\"Refresh\" content=\"0; url=?controller=estudante&action=index\">";
                 die();
             } else {
                 $_SESSION['error'] = "Ocorreu um erro no cadastro!";

@@ -105,7 +105,7 @@ function verificacoes() {
 $controllers = array('pages' => ['home', 'error'],
     'usuario' => ['index', 'add', 'edit', 'view', 'home', 'delete'],
     'universidade' => ['index', 'add', 'edit', 'view', 'delete'],
-    'estudante' => ['index', 'add', 'edit', 'view', 'delete'],
+    'estudante' => ['index', 'add', 'edit', 'view', 'delete', 'mapa'],
     'comprovante' => ['index', 'add', 'edit', 'view', 'delete'],
     'login' => ['login', 'logout'],
 	'motorista' => ['index', 'add', 'edit', 'view', 'delete'],
