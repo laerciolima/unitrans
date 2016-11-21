@@ -12,7 +12,7 @@ class ComprovanteController {
         }
         if (isset($_GET['metodo'])) {
             switch ($_GET['metodo']) {
-                
+
             }
         }
     }
@@ -37,7 +37,7 @@ class ComprovanteController {
     }
 
     public function view() {
-        if (!isset($_GET['id']))    
+        if (!isset($_GET['id']))
             return call('page', 'error');
 
         // we use the given id to get the right post
@@ -45,14 +45,14 @@ class ComprovanteController {
         require_once('views/comprovante/view.php');
     }
 
-    public function add() {
-        if (isset($_POST['data'])) {
+    public function save() {
+        if (isset($_POST['fk_id_estudante'])) {
             @include_once '../connection.php';
 
             require '../models/Estudante.php';
             require '../models/EstudanteDAO.php';
 
-            
+
 
             $comprovante = new Comprovante();
             $comprovante->setFk_id_estudante($_POST["fk_id_estudante"]);
@@ -131,7 +131,7 @@ class ComprovanteController {
             }
 
 
-            
+
 
 
             if (ComprovanteDAO::add($comprovante)) {

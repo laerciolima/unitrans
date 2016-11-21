@@ -34,7 +34,7 @@ class ComprovanteDAO {
         $req->execute(array('id' => $id));
 
         return ComprovanteDAO::popular($req->fetch());
-        
+
     }
 
     public static function delete($id) {
@@ -52,11 +52,9 @@ class ComprovanteDAO {
     public static function add(Comprovante $comprovante) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("INSERT INTO comprovante (fk_id_estudante,data,img,status) VALUES (:fk_id_estudante,NOW(),:img,:status)");
+        $req = Db::getInstance()->prepare("INSERT INTO comprovante (fk_id_estudante,data,img,status) VALUES (:fk_id_estudante,NOW(),:img,0)");
         $req->bindValue(":fk_id_estudante", $comprovante->getFk_id_estudante());
-        $req->bindValue(":data", $comprovante->getData());
         $req->bindValue(":img", $comprovante->getImg());
-        $req->bindValue(":status", $comprovante->getStatus());
         return $req->execute();
     }
 
