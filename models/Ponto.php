@@ -1,16 +1,17 @@
 <?php
 
-class Ponto{
+class Ponto implements JsonSerializable{
     private $id;
     private $endereco;
-    private $qtdestudantes;
-    
+    private $bairro;
+    private $cidade;
+
 function setId ($id){
-        
+
         $this->id=$id;
     }
     function getId (){
-        
+
         return $this->id;
     }
     public function getEndereco() {
@@ -21,13 +22,25 @@ function setId ($id){
         $this->endereco = $endereco;
     }
 
-    public function getQtdEstudantes() {
-        return $this->qtdestudantes;
+    public function getBairro() {
+        return $this->bairro;
     }
 
-    public function setQtdEstudantes($qtdestudantes) {
-        $this->qtdestudantes = $qtdestudantes;
+    public function setBairro($bairro) {
+        $this->bairro = $bairro;
     }
 
+    public function getCidade() {
+        return $this->cidade;
+    }
+
+    public function setCidade($cidade) {
+        $this->cidade = $cidade;
+    }
+
+    public function jsonSerialize()
+    {
+      return get_object_vars($this);
+    }
 }
 ?>

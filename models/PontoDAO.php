@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/Ponto.php';
+@include_once 'models/Ponto.php';
 
 class PontoDAO {
 
@@ -15,7 +15,8 @@ class PontoDAO {
 
             $ponto->setId($linha['id']);
             $ponto->setEndereco($linha["endereco"]);
-            $ponto->setQtdEstudantes($linha["qtdestudantes"]);
+            $ponto->setBairro($linha["bairro"]);
+            $ponto->setCidade($linha["cidade"]);
 
             $lista[] = $ponto;
         }
@@ -32,7 +33,7 @@ class PontoDAO {
         $req->execute(array('id' => $id));
 
         return PontoDAO::popular($req->fetch());
-        
+
     }
 
     public static function delete($id) {
@@ -50,19 +51,21 @@ class PontoDAO {
     public static function add(Ponto $ponto) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("INSERT INTO ponto (endereco,qtdestudantes) VALUES (:endereco,:qtdestudantes)");
+        $req = Db::getInstance()->prepare("INSERT INTO ponto (endereco,bairro,cidade) VALUES (:endereco,:bairro,:cidade)");
         $req->bindValue(":endereco", $ponto->getEndereco());
-        $req->bindValue(":qtdestudantes", $ponto->getQtdEstudantes());
+        $req->bindValue(":bairro", $ponto->getBairro());
+        $req->bindValue(":cidade", $ponto->getCidade());
         return $req->execute();
     }
 
     public static function edit(Ponto $ponto) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("UPDATE ponto SET endereco=:endereco,qtdestudantes=:qtdestudantes WHERE id=:id");
+        $req = Db::getInstance()->prepare("UPDATE ponto SET endereco=:endereco,bairro=:bairro,cidade=:cidade WHERE id=:id");
         $req->bindValue(":id", $ponto->getId());
         $req->bindValue(":endereco", $ponto->getEndereco());
-        $req->bindValue(":qtdestudantes", $ponto->getQtdEstudantes());
+        $req->bindValue(":bairro", $ponto->getBairro());
+        $req->bindValue(":cidade", $ponto->getCidade());
         return $req->execute();
     }
 
@@ -71,7 +74,8 @@ class PontoDAO {
 
         $ponto->setId($linha['id']);
         $ponto->setEndereco($linha['endereco']);
-        $ponto->setQtdEstudantes($linha['qtdestudantes']);
+        $ponto->setBairro($linha['bairro']);
+        $ponto->setCidade($linha['cidade']);
 
         return $ponto;
     }

@@ -175,5 +175,5 @@ class ComprovanteController {
 
 
 }
-
+$controller = new ComprovanteController();
 ?>

@@ -15,8 +15,12 @@
         <td><?php echo $ponto->getEndereco()?></td>
     </tr>
     <tr align="left">
-        <th>QtdEstudantes</th>
-        <td><?php echo $ponto->getQtdEstudantes()?></td>
+        <th>Bairro</th>
+        <td><?php echo $ponto->getBairro()?></td>
+    </tr>
+    <tr align="left">
+        <th>Cidade</th>
+        <td><?php echo $ponto->getCidade()?></td>
     </tr>
     </tbody>
   </table>

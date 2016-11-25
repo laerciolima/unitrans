@@ -38,7 +38,9 @@ function call($controller, $action) {
             break;
         case 'ponto':
             // we need the model to query the database later in the controller
+            echo "aqui";
             require_once('models/PontoDAO.php');
+
             $controller = new PontoController();
             break;
         case 'boleto':
@@ -50,12 +52,12 @@ function call($controller, $action) {
             // we need the model to query the database later in the controller
             require_once('models/ItinerarioDAO.php');
             $controller = new ItinerarioController();
-            break; 
+            break;
         case 'onibus':
             // we need the model to query the database later in the controller
             require_once('models/OnibusDAO.php');
             $controller = new OnibusController();
-            break; 
+            break;
 
         case 'comprovante':
             // we need the model to query the database later in the controller
@@ -73,12 +75,12 @@ function call($controller, $action) {
 }
 
 function verificacoes() {
-    
-    
+
+
     if (isset($_SESSION['success'])) {
         ?>
         <div class="alert alert-success">
-            <strong><?php echo $_SESSION['success']; ?></strong> 
+            <strong><?php echo $_SESSION['success']; ?></strong>
         </div>
         <?php
         unset($_SESSION['success']);
@@ -86,7 +88,7 @@ function verificacoes() {
     if (isset($_SESSION['error'])) {
         ?>
         <div class="alert alert-danger">
-            <strong><?php echo $_SESSION['error']; ?></strong> 
+            <strong><?php echo $_SESSION['error']; ?></strong>
         </div>
         <?php
         unset($_SESSION['error']);
@@ -94,7 +96,7 @@ function verificacoes() {
     if (isset($_SESSION['warning'])) {
         ?>
         <div class="alert alert-warning">
-            <strong><?php echo $_SESSION['warning']; ?></strong> 
+            <strong><?php echo $_SESSION['warning']; ?></strong>
         </div>
         <?php
         unset($_SESSION['warning']);
