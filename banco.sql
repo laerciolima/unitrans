@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.15, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.16, for Linux (x86_64)
 --
 -- Host: localhost    Database: unitrans
 -- ------------------------------------------------------
--- Server version	5.7.15-0ubuntu0.16.04.1
+-- Server version	5.7.16-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -56,12 +56,12 @@ DROP TABLE IF EXISTS `comprovante`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comprovante` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fk_id_estudante` int(11) DEFAULT NULL,
+  `idestudante` int(11) DEFAULT NULL,
   `data` datetime DEFAULT NULL,
   `img` varchar(150) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_id_estudante` FOREIGN KEY (`id`) REFERENCES `estudante` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `idestudante` FOREIGN KEY (`id`) REFERENCES `estudante` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -202,9 +202,10 @@ DROP TABLE IF EXISTS `ponto`;
 CREATE TABLE `ponto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `endereco` varchar(45) NOT NULL,
-  `qtdEstudantes` int(11) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +214,7 @@ CREATE TABLE `ponto` (
 
 LOCK TABLES `ponto` WRITE;
 /*!40000 ALTER TABLE `ponto` DISABLE KEYS */;
-INSERT INTO `ponto` VALUES (1,'rua dos bobos',46);
+INSERT INTO `ponto` VALUES (1,'rua dos bobos','Santa Monica','Uberlandia'),(2,'outra rua ','Umuarama','Uberlandia');
 /*!40000 ALTER TABLE `ponto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-20 17:58:44
+-- Dump completed on 2016-11-28 14:19:21
