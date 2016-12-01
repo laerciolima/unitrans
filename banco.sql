@@ -56,12 +56,12 @@ DROP TABLE IF EXISTS `comprovante`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comprovante` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idestudante` int(11) DEFAULT NULL,
+  `fk_id_estudante` int(11) DEFAULT NULL,
   `data` datetime DEFAULT NULL,
   `img` varchar(150) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `idestudante` FOREIGN KEY (`id`) REFERENCES `estudante` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_id_estudante` FOREIGN KEY (`id`) REFERENCES `estudante` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
