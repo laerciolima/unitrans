@@ -17,13 +17,15 @@ class Estudante{
     private $login;
     private $senha;
     private $foto;
-    
+    private $lat;
+    private $long;
+
 function setId ($id){
-        
+
         $this->id=$id;
     }
     function getId (){
-        
+
         return $this->id;
     }
     public function getNome() {
@@ -146,5 +148,20 @@ function setId ($id){
         $this->foto = $foto;
     }
 
+    public function getLat() {
+        return $this->lat;
+    }
+
+    public function setLat($lat) {
+        $this->lat = $lat;
+    }
+
+    public function getLong() {
+        return $this->long;
+    }
+
+    public function setLong($long) {
+        $this->long = $long;
+    }
 }
 ?>

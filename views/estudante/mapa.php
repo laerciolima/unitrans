@@ -27,12 +27,12 @@ echo $vetor;
 
 
 ?>
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyBWX65SWnShDhbin6V-87H4hroL8T_ks4s&sensor=false" 
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBWX65SWnShDhbin6V-87H4hroL8T_ks4s&sensor=false"
           type="text/javascript"></script>
  <div id="map" style="width: 900px; height: 600px;"></div>
 
   <script type="text/javascript">
-    var locations = [     
+    var locations = [
       <?php echo $vetor; ?>
     ];
 
@@ -43,10 +43,9 @@ echo $vetor;
     });
 
     var infowindow = new google.maps.InfoWindow();
-    
     var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map

@@ -28,6 +28,8 @@ class EstudanteDAO {
             $estudante->setHorario_de_volta($linha["horario_de_volta"]);
             $estudante->setLogin($linha["login"]);
             $estudante->setSenha($linha["senha"]);
+            $estudante->setLat($linha["latitude"]);
+            $estudante->setLong($linha["longitude"]);
 
             $lista[] = $estudante;
         }
@@ -83,7 +85,7 @@ class EstudanteDAO {
     public static function add(Estudante $estudante) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("INSERT INTO estudante (nome,cpf,data_de_nascimento,telefone,rua,numero,bairro,cidade,curso,fk_id_universidade,horario_de_ida,horario_de_volta,login,senha, foto) VALUES (:nome,:cpf,:data_de_nascimento,:telefone,:rua,:numero,:bairro,:cidade,:curso,:fk_id_universidade,:horario_de_ida,:horario_de_volta,:login,:senha ,:foto)");
+        $req = Db::getInstance()->prepare("INSERT INTO estudante (nome,cpf,data_de_nascimento,telefone,rua,numero,bairro,cidade,curso,fk_id_universidade,horario_de_ida,horario_de_volta,login,senha, foto, latitude, longitude) VALUES (:nome,:cpf,:data_de_nascimento,:telefone,:rua,:numero,:bairro,:cidade,:curso,:fk_id_universidade,:horario_de_ida,:horario_de_volta,:login,:senha ,:foto, :lat, :long)");
         $req->bindValue(":nome", $estudante->getNome());
         $req->bindValue(":cpf", $estudante->getCpf());
         $req->bindValue(":data_de_nascimento", $estudante->getData_de_nascimento());
@@ -99,13 +101,15 @@ class EstudanteDAO {
         $req->bindValue(":login", $estudante->getLogin());
         $req->bindValue(":senha", $estudante->getSenha());
         $req->bindValue(":foto", $estudante->getFoto());
+        $req->bindValue(":long", $estudante->getLong());
+        $req->bindValue(":lat", $estudante->getLat());
         return $req->execute();
     }
 
     public static function edit(Estudante $estudante) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("UPDATE estudante SET nome=:nome,cpf=:cpf,data_de_nascimento=:data_de_nascimento,telefone=:telefone,rua=:rua,numero=:numero,bairro=:bairro,cidade=:cidade,curso=:curso,fk_id_universidade=:fk_id_universidade,horario_de_ida=:horario_de_ida,horario_de_volta=:horario_de_volta,login=:login,senha=:senha WHERE id=:id");
+        $req = Db::getInstance()->prepare("UPDATE estudante SET nome=:nome,cpf=:cpf,data_de_nascimento=:data_de_nascimento,telefone=:telefone,rua=:rua,numero=:numero,bairro=:bairro,cidade=:cidade,curso=:curso,fk_id_universidade=:fk_id_universidade,horario_de_ida=:horario_de_ida,horario_de_volta=:horario_de_volta,login=:login,senha=:senha, latitude=:lat, longitude=:long WHERE id=:id");
         $req->bindValue(":id", $estudante->getId());
         $req->bindValue(":nome", $estudante->getNome());
         $req->bindValue(":cpf", $estudante->getCpf());
@@ -121,6 +125,8 @@ class EstudanteDAO {
         $req->bindValue(":horario_de_volta", $estudante->getHorario_de_volta());
         $req->bindValue(":login", $estudante->getLogin());
         $req->bindValue(":senha", $estudante->getSenha());
+        $req->bindValue(":long", $estudante->getLong());
+        $req->bindValue(":lat", $estudante->getLat());
         return $req->execute();
     }
 
@@ -142,6 +148,8 @@ class EstudanteDAO {
         $estudante->setHorario_de_volta($linha['horario_de_volta']);
         $estudante->setLogin($linha['login']);
         $estudante->setFoto($linha['foto']);
+        $estudante->setLat($linha["latitude"]);
+        $estudante->setLong($linha["longitude"]);
 
         return $estudante;
     }

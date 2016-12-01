@@ -50,7 +50,9 @@ class ComprovanteController {
             @include_once '../connection.php';
 
             require '../models/Estudante.php';
+            require '../models/Comprovante.php';
             require '../models/EstudanteDAO.php';
+            require '../models/ComprovanteDAO.php';
 
 
 
@@ -111,8 +113,9 @@ class ComprovanteController {
                     $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
 
                     // Caminho de onde ficará a imagem
-                    $caminho_imagem = "storage/user/" . $estudante->getCpf() . "/" . $nome_imagem;
-
+                    $caminho_imagem = "../storage/user/" . $estudante->getCpf() . "/" . $nome_imagem;
+                    
+                    
                     // Faz o upload da imagem para seu respectivo caminho
                     move_uploaded_file($foto["tmp_name"], $caminho_imagem);
 

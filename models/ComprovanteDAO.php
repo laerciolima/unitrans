@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/Comprovante.php';
+@include_once 'models/Comprovante.php';
 
 class ComprovanteDAO {
 

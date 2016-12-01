@@ -16,8 +16,8 @@ class EstudanteController {
         $estudantes = EstudanteDAO::all();
         require_once('views/estudante/index.php');
     }
-    
-    
+
+
     public function mapa() {
 
         $estudantes = EstudanteDAO::all();
@@ -59,14 +59,14 @@ class EstudanteController {
         }else{
 
             $estudante = EstudanteDAO::find($_GET['id']);
-            
+
             $array['nome_aluno'] = $estudante->getNome();
             $array['data_de_nascimento'] = $estudante->getData_de_nascimento();
             $array['horario_de_ida'] = $estudante->getHorario_de_ida();
             $array['horario_de_volta'] = $estudante->getHorario_de_volta();
 
             $universidade = UniversidadeDAO::find($estudante->getFk_id_universidade());
-        
+
             $array['universidade'] = $universidade->getNome();
             $array['foto'] = "unitrans/storage/user/".$estudante->getCpf()."/".$estudante->getFoto();
             $array['status'] = 0;
@@ -102,6 +102,22 @@ class EstudanteController {
 
 
 
+
+            $address = str_replace(" ", "+", $estudante->getRua()) . "," . $estudante->getNumero() . ",";
+            $address .= str_replace(" ", "+", $estudante->getCidade()) . ",Brasil";
+
+            echo $address . "-<br/>";
+
+            $geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address=' . $address . '&sensor=false');
+
+            $output = json_decode($geocode);
+
+            $lat = $output->results[0]->geometry->location->lat;
+            $long = $output->results[0]->geometry->location->lng;
+
+            $estudante->setLong($long);
+            $estudante->setLat($lat);
+            print_r($estudante);
             if (!empty($foto["name"])) {
                 $imagem_alterada = 1;
                 // Largura máxima em pixels
@@ -169,7 +185,7 @@ class EstudanteController {
 
 
 
-
+            return;
 
 
             if (EstudanteDAO::add($estudante)) {

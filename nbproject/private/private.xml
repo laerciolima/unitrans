@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/unitrans/controllers/ComprovanteController.php</file>
-            <file>file:/var/www/html/unitrans/controllers/UsuarioController.php</file>
-            <file>file:/var/www/html/unitrans/models/EstudanteDAO.php</file>
             <file>file:/var/www/html/unitrans/models/ComprovanteDAO.php</file>
-            <file>file:/var/www/html/unitrans/controllers/EstudanteController.php</file>
             <file>file:/var/www/html/unitrans/views/usuario/view.php</file>
+            <file>file:/var/www/html/unitrans/controllers/LoginController.php</file>
         </group>
     </open-files>
 </project-private>
