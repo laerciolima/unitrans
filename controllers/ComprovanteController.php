@@ -61,7 +61,7 @@ class ComprovanteController {
 
             $comprovante->setStatus(0);
 
-            $estudante = EstudanteDAO::find($_POST['fk_id_estudante']);
+            $estudante = EstudanteDAO::find($_POST['id']);
 
 
             $foto = $_FILES["imagem"];

@@ -98,6 +98,8 @@ CREATE TABLE `estudante` (
   `cidade` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `horario_de_volta` time DEFAULT NULL,
   `foto` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `latitude` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `longitude` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -105,13 +107,16 @@ CREATE TABLE `estudante` (
 --
 -- Dumping data for table `estudante`
 --
-
 LOCK TABLES `estudante` WRITE;
 /*!40000 ALTER TABLE `estudante` DISABLE KEYS */;
-INSERT INTO `estudante` VALUES (1,'nome','145','1994-01-15','rua Isaac de Oliveira','(34) 9144-5648','1','curso','laercio','123','03:30:00',71,'Santa Monica','Uberlandia','10:30:00','55608d5de4c431344cddd9d0ecb0c6f8.jpg'),(2,'Lucas Miranda','123','2555-01-01','Rua Maria das Dores Dias','(34) 99999-9999','1','Sistemas de InformaÃ§Ã£o','lucas','123','01:00:00',50,'Santa Monica','Uberlandia','01:00:00','61a537b4969673e8706e5ba150d37e1d.png'),(3,'Lucas Miranda','12366','2555-01-01','Rua Maria das Dores Dias','(34) 9999-99999','1','Sistemas de InformaÃ§Ã£o','lucas1','123','01:00:00',50,'Santa Monica','Uberlandia','01:00:00','7be16e9ea8b7f53c2808db8ee31f112d.png'),(4,'Mariano da Silva Junior','123666','2555-01-01','Rua Marciano Santos','(34) 99999-9999','1','Sistemas de InformaÃ§Ã£o','lucas','123','01:00:00',50,'Santa Monica','Uberlandia','01:00:00','549bb1522c785e5335a39e6ea1e9465e.jpg'),(5,'Carla Mariana','423666','2555-01-01','Rua Tomas Falbo','(34) 99999-9999','1','Sistemas de InformaÃ§Ã£o','carla','123','01:00:00',71,'Santa Monica','Uberlandia','01:00:00','1043351f12a6baf3ecdfad54a9289a9c.jpg');
+INSERT INTO `estudante` VALUES 
+(1,'nome','145','1994-01-15','rua Isaac de Oliveira','(34) 9144-5648','1','curso','laercio','123','03:30:00',71,'Santa Monica','Uberlandia','10:30:00','55608d5de4c431344cddd9d0ecb0c6f8.jpg','1000', '2009'),
+(2,'Lucas Miranda','123','2555-01-01','Rua Maria das Dores Dias','(34) 99999-9999','1','Sistemas de InformaÃ§Ã£o','lucas','123','01:00:00',50,'Santa Monica','Uberlandia','01:00:00','61a537b4969673e8706e5ba150d37e1d.png','1000', '2009'),
+(3,'Lucas Miranda','12366','2555-01-01','Rua Maria das Dores Dias','(34) 9999-99999','1','Sistemas de InformaÃ§Ã£o','lucas1','123','01:00:00',50,'Santa Monica','Uberlandia','01:00:00','7be16e9ea8b7f53c2808db8ee31f112d.png','1000', '2009'),
+(4,'Mariano da Silva Junior','123666','2555-01-01','Rua Marciano Santos','(34) 99999-9999','1','Sistemas de InformaÃ§Ã£o','lucas','123','01:00:00',50,'Santa Monica','Uberlandia','01:00:00','549bb1522c785e5335a39e6ea1e9465e.jpg','1000', '2009'),
+(5,'Carla Mariana','423666','2555-01-01','Rua Tomas Falbo','(34) 99999-9999','1','Sistemas de InformaÃ§Ã£o','carla','123','01:00:00',71,'Santa Monica','Uberlandia','01:00:00','1043351f12a6baf3ecdfad54a9289a9c.jpg', '1000', '2009');
 /*!40000 ALTER TABLE `estudante` ENABLE KEYS */;
 UNLOCK TABLES;
-
 --
 -- Table structure for table `itinerario`
 --
