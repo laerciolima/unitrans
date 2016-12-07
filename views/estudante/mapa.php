@@ -1,61 +1,99 @@
-<?php
+<h2>Mapa dos pontos e estudantes</h2>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 70%;
+        width: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: new google.maps.LatLng(<?php echo $estudantes[0]->getLat().",".$estudantes[0]->getLong(); ?>),
+          mapTypeId: 'roadmap'
+        });
 
-$cont = 0;
-$vetor = "";
-foreach ($estudantes as $estudante) {
-    $address = str_replace(" ", "+", $estudante->getRua()) . "," . $estudante->getNumero() . ",";
-    $address .= str_replace(" ", "+", $estudante->getCidade()) . ",Brasil";
+        var iconBase = 'webroot/img/';
+        var icons = {
+          ponto: {
+            icon: iconBase + 'bus_map.png'
+          },
+          estudante: {
+            icon: iconBase + 'user_map.png'
+          }
+        };
 
-    echo $address . "-<br/>";
-
-    $geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address=' . $address . '&sensor=false');
-
-    $output = json_decode($geocode);
-
-    $lat = $output->results[0]->geometry->location->lat;
-    $long = $output->results[0]->geometry->location->lng;
-
-
-     $vetor .= "['".$estudante->getNome()."', ".$lat . "," . $long.",1]";
-     if($cont != (count($estudante)-2))
-         $vetor .= ",";
-    $cont++;
-}
-
-echo $vetor;
-
-
-
-?>
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyBWX65SWnShDhbin6V-87H4hroL8T_ks4s&sensor=false"
-          type="text/javascript"></script>
- <div id="map" style="width: 900px; height: 600px;"></div>
-
-  <script type="text/javascript">
-    var locations = [
-      <?php echo $vetor; ?>
-    ];
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: new google.maps.LatLng(-18.9205386, -48.2567756),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
+        function addMarker(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
         }
-      })(marker, i));
-    }
-  </script>
+
+        var features = [
+           <?php
+           $cont = 0;
+           foreach ($estudantes as $estudante) {
+             if($cont != (count($estudante)-1))
+               echo  ",";
+          $cont++;
+          ?>
+
+             {
+              type: 'estudante',
+              position: new google.maps.LatLng(<?php echo $estudante->getLat().",".$estudante->getLong(); ?>)
+             }
+
+           <?php
+
+         }
+
+         if(!empty($pontos))
+            echo ",";
+           ?>
+
+
+           <?php
+          $cont = 0;
+          foreach ($pontos as $ponto) {
+           if($cont != (count($ponto)-1))
+             echo  ",";
+         $cont++;
+         ?>
+
+           {
+             type: 'ponto',
+             position: new google.maps.LatLng(<?php echo $ponto->getLat().",".$ponto->getLong(); ?>)
+           }
+
+          <?php
+
+        }
+          ?>
+
+
+        ];
+
+        for (var i = 0, feature; feature = features[i]; i++) {
+          addMarker(feature);
+        }
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWX65SWnShDhbin6V-87H4hroL8T_ks4s&callback=initMap">
+    </script>
+  </body>
+</html>

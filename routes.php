@@ -27,6 +27,7 @@ function call($controller, $action) {
             // we need the model to query the database later in the controller
             require_once('models/EstudanteDAO.php');
             require_once('models/UniversidadeDAO.php');
+            require_once('models/PontoDAO.php');
             $controller = new EstudanteController();
             break;
 
@@ -38,7 +39,7 @@ function call($controller, $action) {
             break;
         case 'ponto':
             // we need the model to query the database later in the controller
-            echo "aqui";
+
             require_once('models/PontoDAO.php');
 
             $controller = new PontoController();

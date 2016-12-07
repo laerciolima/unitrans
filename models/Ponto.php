@@ -5,6 +5,9 @@ class Ponto implements JsonSerializable{
     private $endereco;
     private $bairro;
     private $cidade;
+    private $lat;
+    private $long;
+
 
 function setId ($id){
 
@@ -41,6 +44,22 @@ function setId ($id){
     public function jsonSerialize()
     {
       return get_object_vars($this);
+    }
+
+    public function getLat() {
+        return $this->lat;
+    }
+
+    public function setLat($lat) {
+        $this->lat = $lat;
+    }
+
+    public function getLong() {
+        return $this->long;
+    }
+
+    public function setLong($long) {
+        $this->long = $long;
     }
 }
 ?>

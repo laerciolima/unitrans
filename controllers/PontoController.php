@@ -47,6 +47,22 @@ class PontoController {
         $ponto->setEndereco($_POST["endereco"]);
         $ponto->setBairro($_POST["bairro"]);
         $ponto->setCidade($_POST["cidade"]);
+
+
+        $address = str_replace(" ", "+", $_POST["endereco"] . "," . $_POST["bairro"] . ",");
+        $address .= str_replace(" ", "+", $_POST["cidade"]) . ",Brasil";
+
+        $url = "https://maps.google.com/maps/api/geocode/json?address=" . $address . "&sensor=false&key=AIzaSyBWX65SWnShDhbin6V-87H4hroL8T_ks4s";
+        $geocode = file_get_contents($url);
+
+        $output = json_decode($geocode);
+
+        $lat = $output->results[0]->geometry->location->lat;
+        $long = $output->results[0]->geometry->location->lng;
+
+        $ponto->setLong($long);
+        $ponto->setLat($lat);
+
             if(PontoDAO::add($ponto)){
                 $_SESSION['success'] = "Ponto cadastrado com sucesso!";
                 echo "<meta http-equiv=\"Refresh\" content=\"0; url=?controller=ponto&action=index\">";
@@ -97,7 +113,6 @@ class PontoController {
       $pontos = PontoDAO::all();
       //print_r($pontos);
       echo json_encode($pontos);
-
    }
 
 }

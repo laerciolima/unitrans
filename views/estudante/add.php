@@ -62,7 +62,21 @@
             </select>
 
         </div>
-    </div><div class="form-group">
+</div><div class="form-group">
+     <label class="control-label col-sm-2" for="fk_id_ponto">Ponto de embarque:</label>
+     <div class="col-sm-4">
+         <select class="form-control" name="fk_id_ponto" id="fk_id_ponto">
+
+             <?php foreach ($pontos as $ponto) { ?>
+             <option value="<?php echo $ponto->getId();?>"><?php echo $ponto->getEndereco()." - ".$ponto->getBairro();?></option>
+
+             <?php } ?>
+         </select>
+
+     </div>
+</div>
+
+    <div class="form-group">
         <label class="control-label col-sm-2" for="horario_de_ida">Horario de ida:</label>
         <div class="col-sm-4">
             <input type="time" class="form-control" name="horario_de_ida" id="horario_de_ida" placeholder="Digite o horario de ida">

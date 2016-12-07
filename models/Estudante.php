@@ -19,6 +19,7 @@ class Estudante{
     private $foto;
     private $lat;
     private $long;
+    private $fk_id_ponto;
 
 function setId ($id){
 
@@ -106,6 +107,14 @@ function setId ($id){
 
     public function setfk_id_universidade($fk_id_universidade) {
         $this->fk_id_universidade = $fk_id_universidade;
+    }
+
+    public function getfk_id_ponto() {
+        return $this->fk_id_ponto;
+    }
+
+    public function setfk_id_ponto($fk_id_ponto) {
+        $this->fk_id_ponto = $fk_id_ponto;
     }
 
     public function getHorario_de_ida() {

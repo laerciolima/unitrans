@@ -17,6 +17,8 @@ class PontoDAO {
             $ponto->setEndereco($linha["endereco"]);
             $ponto->setBairro($linha["bairro"]);
             $ponto->setCidade($linha["cidade"]);
+            $ponto->setLat($linha["latitude"]);
+            $ponto->setLong($linha["longitude"]);
 
             $lista[] = $ponto;
         }
@@ -51,10 +53,13 @@ class PontoDAO {
     public static function add(Ponto $ponto) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("INSERT INTO ponto (endereco,bairro,cidade) VALUES (:endereco,:bairro,:cidade)");
+        $req = Db::getInstance()->prepare("INSERT INTO ponto (endereco,bairro,cidade, latitude, longitude) VALUES (:endereco,:bairro,:cidade, :lat, :long)");
         $req->bindValue(":endereco", $ponto->getEndereco());
         $req->bindValue(":bairro", $ponto->getBairro());
         $req->bindValue(":cidade", $ponto->getCidade());
+        $req->bindValue(":lat", $ponto->getLat());
+        $req->bindValue(":long", $ponto->getLong());
+
         return $req->execute();
     }
 
@@ -76,6 +81,8 @@ class PontoDAO {
         $ponto->setEndereco($linha['endereco']);
         $ponto->setBairro($linha['bairro']);
         $ponto->setCidade($linha['cidade']);
+        $ponto->setLat($linha["latitude"]);
+        $ponto->setLong($linha["longitude"]);
 
         return $ponto;
     }
