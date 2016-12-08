@@ -1,21 +1,20 @@
 <?php
+if (isset($_POST['metodo'])) {
+    switch ($_POST['metodo']) {
+        case 'save':
+            $controller = new ComprovanteController();
+            $controller->save();
+            break;
+    }
+}
+if (isset($_GET['metodo'])) {
+    switch ($_GET['metodo']) {
+
+    }
+}
+
 
 class ComprovanteController {
-
-    public function __construct() {
-        if (isset($_POST['metodo'])) {
-            switch ($_POST['metodo']) {
-                case 'save':
-                    self::save();
-                    break;
-            }
-        }
-        if (isset($_GET['metodo'])) {
-            switch ($_GET['metodo']) {
-
-            }
-        }
-    }
 
     public function index() {
         // we store all the posts in a variable
@@ -61,7 +60,7 @@ class ComprovanteController {
 
             $comprovante->setStatus(0);
 
-            $estudante = EstudanteDAO::find($_POST['id']);
+            $estudante = EstudanteDAO::find($_POST['fk_id_estudante']);
 
 
             $foto = $_FILES["imagem"];
@@ -114,8 +113,8 @@ class ComprovanteController {
 
                     // Caminho de onde ficará a imagem
                     $caminho_imagem = "../storage/user/" . $estudante->getCpf() . "/" . $nome_imagem;
-                    
-                    
+
+
                     // Faz o upload da imagem para seu respectivo caminho
                     move_uploaded_file($foto["tmp_name"], $caminho_imagem);
 
@@ -178,5 +177,4 @@ class ComprovanteController {
 
 
 }
-$controller = new ComprovanteController();
 ?>
