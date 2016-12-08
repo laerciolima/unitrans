@@ -47,3 +47,14 @@ table.view tr td img { margin: 0px; padding: 0px; }
 #botao_logout{
     color: red;
 }
+
+.comprovante_status0{
+   color: blue;
+   font-weight: bold;
+}
+.comprovante_status1{
+   color: green;
+}
+.comprovante_status-1{
+   color: red
+}

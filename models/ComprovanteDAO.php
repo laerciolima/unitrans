@@ -7,7 +7,7 @@ class ComprovanteDAO {
     public static function all() {
         $lista = [];
 
-        $req = Db::getInstance()->query('SELECT * FROM comprovante');
+        $req = Db::getInstance()->query('SELECT * FROM comprovante order by id desc');
 
         // we create a list of Post objects from the database results
         foreach ($req->fetchAll() as $linha) {
@@ -21,7 +21,6 @@ class ComprovanteDAO {
 
             $lista[] = $comprovante;
         }
-
         return $lista;
     }
 
@@ -58,15 +57,12 @@ class ComprovanteDAO {
         return $req->execute();
     }
 
-    public static function edit(Comprovante $comprovante) {
+    public static function alterarStatus($id, $status) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("UPDATE comprovante SET fk_id_estudante=:fk_id_estudante,data=:data,img=:img,status=:status WHERE id=:id");
-        $req->bindValue(":id", $comprovante->getId());
-        $req->bindValue(":fk_id_estudante", $comprovante->getFk_id_estudante());
-        $req->bindValue(":data", $comprovante->getData());
-        $req->bindValue(":img", $comprovante->getImg());
-        $req->bindValue(":status", $comprovante->getStatus());
+        $req = Db::getInstance()->prepare("UPDATE comprovante SET status=:status WHERE id=:id");
+        $req->bindValue(":id", $id);
+        $req->bindValue(":status", $status);
         return $req->execute();
     }
 

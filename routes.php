@@ -63,6 +63,8 @@ function call($controller, $action) {
         case 'comprovante':
             // we need the model to query the database later in the controller
             require_once('models/ComprovanteDAO.php');
+            require_once('models/EstudanteDAO.php');
+            require_once('controllers/EstudanteController.php');
             $controller = new ComprovanteController();
             break;
         case 'login':
@@ -109,7 +111,7 @@ $controllers = array('pages' => ['home', 'error'],
     'usuario' => ['index', 'add', 'edit', 'view', 'home', 'delete'],
     'universidade' => ['index', 'add', 'edit', 'view', 'delete'],
     'estudante' => ['index', 'add', 'edit', 'view', 'delete', 'mapa'],
-    'comprovante' => ['index', 'add', 'edit', 'view', 'delete'],
+    'comprovante' => ['index', 'add', 'edit', 'view', 'delete', 'alterarStatus'],
     'login' => ['login', 'logout'],
 	'motorista' => ['index', 'add', 'edit', 'view', 'delete'],
     'ponto' => ['index', 'add', 'edit', 'view', 'delete'],

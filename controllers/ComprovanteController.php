@@ -40,7 +40,8 @@ class ComprovanteController {
             return call('page', 'error');
 
         // we use the given id to get the right post
-        $comprovante = ComprovanteDAO::find($_GET['id']);
+        $comprovante = ComprovanteDAO::find(base64_decode($_GET['id']));
+        $estudante = EstudanteDAO::find($comprovante->getFk_id_estudante());
         require_once('views/comprovante/view.php');
     }
 
@@ -114,7 +115,6 @@ class ComprovanteController {
                     // Caminho de onde ficará a imagem
                     $caminho_imagem = "../storage/user/" . $estudante->getCpf() . "/" . $nome_imagem;
 
-
                     // Faz o upload da imagem para seu respectivo caminho
                     move_uploaded_file($foto["tmp_name"], $caminho_imagem);
 
@@ -131,11 +131,6 @@ class ComprovanteController {
                     die();
                 }
             }
-
-
-
-
-
             if (ComprovanteDAO::add($comprovante)) {
                 echo "true";
                 die();
@@ -174,6 +169,20 @@ class ComprovanteController {
         require_once('views/comprovante/edit.php');
     }
 
+    public function alterarStatus(){
+        $id = $_POST['id'];
+        $status = $_POST['status'];
+
+        if(!ComprovanteDAO::alterarStatus($id, $status)){
+         $_SESSION['error'] = "Ocorreu um erro ao alterar o status do comprovante!";
+
+        } else {
+            $_SESSION['success'] = "Status alterado com sucesso!";
+        }
+
+        echo "<meta http-equiv=\"Refresh\" content=\"0; url=?controller=comprovante&action=index\">";
+        die();
+    }
 
 
 }
