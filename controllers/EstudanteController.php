@@ -103,7 +103,8 @@ class EstudanteController {
          $estudante->setHorario_de_volta($_POST["horario_de_volta"]);
          $estudante->setLogin($_POST["login"]);
          $estudante->setSenha($_POST["senha"]);
-         $estudante->setFk_id_ponto($_POST["fk_id_ponto"]);
+         $estudante->setFk_id_ponto_embarque($_POST["fk_id_ponto_embarque"]);
+         $estudante->setFk_id_ponto_desembarque($_POST["fk_id_ponto_desembarque"]);
 
 
          $foto = $_FILES["foto"];
@@ -130,6 +131,8 @@ class EstudanteController {
          $estudante->setLat($lat);
          echo "<pre>";
          print_r($estudante);
+
+         return;
          if (!empty($foto["name"])) {
             $imagem_alterada = 1;
             // Largura máxima em pixels
@@ -226,7 +229,8 @@ class EstudanteController {
          $estudante->setHorario_de_volta($_POST["horario_de_volta"]);
          $estudante->setLogin($_POST["login"]);
          $estudante->setSenha($_POST["senha"]);
-         $estudante->setFk_id_ponto($_POST["fk_id_ponto"]);
+         $estudante->setFk_id_ponto_embarque($_POST["fk_id_ponto_embarque"]);
+         $estudante->setFk_id_ponto_desembarque($_POST["fk_id_ponto_desembarque"]);
 
          if (!EstudanteDAO::edit($estudante)) {
             $_SESSION['error'] = "Ocorreu um erro ao editar!";
@@ -256,7 +260,8 @@ class EstudanteController {
 
       $estudante->setHorario_de_ida($_POST['horarioIda']);
       $estudante->setHorario_de_volta($_POST['horarioVolta']);
-      $estudante->setFK_id_ponto($_POST['fk_id_ponto']);
+      $estudante->setFk_id_ponto_embarque($_POST["fk_id_ponto_embarque"]);
+      $estudante->setFk_id_ponto_desembarque($_POST["fk_id_ponto_desembarque"]);
 
       if(EstudanteDAO::edit($estudante))
          echo "true";

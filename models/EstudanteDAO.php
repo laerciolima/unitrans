@@ -30,7 +30,8 @@ class EstudanteDAO {
             $estudante->setSenha($linha["senha"]);
             $estudante->setLat($linha["latitude"]);
             $estudante->setLong($linha["longitude"]);
-            $estudante->setFk_id_ponto($linha["fk_id_ponto"]);
+            $estudante->setFk_id_ponto_embarque($linha["fk_id_ponto_embarque"]);
+            $estudante->setFk_id_ponto_desembarque($linha["fk_id_ponto_desembarque"]);
 
             $lista[] = $estudante;
         }
@@ -86,7 +87,7 @@ class EstudanteDAO {
     public static function add(Estudante $estudante) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("INSERT INTO estudante (nome,cpf,data_de_nascimento,telefone,rua,numero,bairro,cidade,curso,fk_id_universidade,horario_de_ida,horario_de_volta,login,senha, foto, latitude, longitude, fk_id_ponto) VALUES (:nome,:cpf,:data_de_nascimento,:telefone,:rua,:numero,:bairro,:cidade,:curso,:fk_id_universidade,:horario_de_ida,:horario_de_volta,:login,:senha ,:foto, :lat, :long, :ponto)");
+        $req = Db::getInstance()->prepare("INSERT INTO estudante (nome,cpf,data_de_nascimento,telefone,rua,numero,bairro,cidade,curso,fk_id_universidade,horario_de_ida,horario_de_volta,login,senha, foto, latitude, longitude, fk_id_ponto_embarque, fk_id_ponto_desembarque) VALUES (:nome,:cpf,:data_de_nascimento,:telefone,:rua,:numero,:bairro,:cidade,:curso,:fk_id_universidade,:horario_de_ida,:horario_de_volta,:login,:senha ,:foto, :lat, :long, :ponto_emb, :ponto_des)");
         $req->bindValue(":nome", $estudante->getNome());
         $req->bindValue(":cpf", $estudante->getCpf());
         $req->bindValue(":data_de_nascimento", $estudante->getData_de_nascimento());
@@ -104,14 +105,15 @@ class EstudanteDAO {
         $req->bindValue(":foto", $estudante->getFoto());
         $req->bindValue(":long", $estudante->getLong());
         $req->bindValue(":lat", $estudante->getLat());
-        $req->bindValue(":ponto", $estudante->getFk_id_ponto());
+        $req->bindValue(":ponto_emb", $estudante->getFk_id_ponto_embarque());
+        $req->bindValue(":ponto_des", $estudante->getFk_id_ponto_desembarque());
         return $req->execute();
     }
 
     public static function edit(Estudante $estudante) {
         // we make sure $id is an integer
 
-        $req = Db::getInstance()->prepare("UPDATE estudante SET nome=:nome,cpf=:cpf,data_de_nascimento=:data_de_nascimento,telefone=:telefone,rua=:rua,numero=:numero,bairro=:bairro,cidade=:cidade,curso=:curso,fk_id_universidade=:fk_id_universidade,horario_de_ida=:horario_de_ida,horario_de_volta=:horario_de_volta,login=:login,senha=:senha, latitude=:lat, longitude=:long, fk_id_ponto= :ponto WHERE id=:id");
+        $req = Db::getInstance()->prepare("UPDATE estudante SET nome=:nome,cpf=:cpf,data_de_nascimento=:data_de_nascimento,telefone=:telefone,rua=:rua,numero=:numero,bairro=:bairro,cidade=:cidade,curso=:curso,fk_id_universidade=:fk_id_universidade,horario_de_ida=:horario_de_ida,horario_de_volta=:horario_de_volta,login=:login,senha=:senha, latitude=:lat, longitude=:long, fk_id_ponto_embarque= :ponto_emb, fk_id_ponto_desembarque= :ponto_des WHERE id=:id");
         $req->bindValue(":id", $estudante->getId());
         $req->bindValue(":nome", $estudante->getNome());
         $req->bindValue(":cpf", $estudante->getCpf());
@@ -129,7 +131,8 @@ class EstudanteDAO {
         $req->bindValue(":senha", $estudante->getSenha());
         $req->bindValue(":long", $estudante->getLong());
         $req->bindValue(":lat", $estudante->getLat());
-        $req->bindValue(":ponto", $estudante->getFk_id_ponto());
+        $req->bindValue(":ponto_emb", $estudante->getFk_id_ponto_embarque());
+        $req->bindValue(":ponto_des", $estudante->getFk_id_ponto_desembarque());
 
         return $req->execute();
     }
@@ -154,7 +157,8 @@ class EstudanteDAO {
         $estudante->setFoto($linha['foto']);
         $estudante->setLat($linha["latitude"]);
         $estudante->setLong($linha["longitude"]);
-        $estudante->setFk_id_ponto($linha["fk_id_ponto"]);
+        $estudante->setFk_id_ponto_embarque($linha["fk_id_ponto_embarque"]);
+        $estudante->setFk_id_ponto_desembarque($linha["fk_id_ponto_desembarque"]);
 
         return $estudante;
     }

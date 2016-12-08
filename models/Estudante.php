@@ -19,7 +19,8 @@ class Estudante{
     private $foto;
     private $lat;
     private $long;
-    private $fk_id_ponto;
+    private $fk_id_ponto_embarque;
+    private $fk_id_ponto_desembarque;
 
 function setId ($id){
 
@@ -109,13 +110,22 @@ function setId ($id){
         $this->fk_id_universidade = $fk_id_universidade;
     }
 
-    public function getfk_id_ponto() {
-        return $this->fk_id_ponto;
+    public function getFk_id_ponto_embarque() {
+        return $this->fk_id_ponto_embarque;
     }
 
-    public function setfk_id_ponto($fk_id_ponto) {
-        $this->fk_id_ponto = $fk_id_ponto;
+    public function setFk_id_ponto_embarque($fk_id_ponto) {
+        $this->fk_id_ponto_embarque = $fk_id_ponto;
     }
+
+
+        public function getFk_id_ponto_desembarque() {
+            return $this->fk_id_ponto_desembarque;
+        }
+
+        public function setFk_id_ponto_desembarque($fk_id_ponto) {
+            $this->fk_id_ponto_desembarque = $fk_id_ponto;
+        }
 
     public function getHorario_de_ida() {
         return $this->horario_de_ida;
