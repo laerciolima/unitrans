@@ -1,11 +1,11 @@
 <button  onclick="location.href='?controller=comprovante&action=add'" type="button" class="btn btn-default btn-sm" style="margin-top: 5px">
                     Novo
                 </button><h2>Lista de Comprovantes</h2>
-<table id="exampl1e" class="display compact" cellspacing="0" width="100%">
+<table id="example" class="display compact" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Fk id estudante</th>
+            <th>Estudante</th>
             <th>Data</th>
             <th>Status</th>
             <th>Ações</th>
@@ -14,7 +14,7 @@
     <tfoot>
         <tr>
             <th>ID</th>
-            <th>Fk id estudante</th>
+            <th>Estudante</th>
             <th>Data</th>
             <th>Status</th>
             <th>Ações</th>
