@@ -6,8 +6,7 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Telefone</th>
-            <th>niverisade</th>
+            <th>Univerisade</th>
             <th>Horario de ida</th>
             <th>Horario de volta</th>
             <th>Ações</th>
@@ -17,7 +16,6 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Telefone</th>
             <th>Univerisade</th>
             <th>Horario de ida</th>
             <th>Horario de volta</th>
@@ -29,8 +27,7 @@
             <tr>
                 <td><?php echo $estudante->getId(); ?></td>
                 <td><a href="?controller=estudante&action=view&id=<?php echo $estudante->getId();?>"><?php echo $estudante->getNome(); ?></a></td>
-                <td><?php echo $estudante->getTelefone(); ?></td>
-                <td><?php echo $estudante->getfk_id_universidade(); ?></td>
+                <td><?php echo UniversidadeDAO::find($estudante->getFk_id_universidade())->getNome(); ?></td>
                 <td><?php echo $estudante->getHorario_de_ida(); ?></td>
                 <td><?php echo $estudante->getHorario_de_volta(); ?></td>
                 <td><button type="button" onclick="location.href='?controller=estudante&action=edit&id=<?php echo base64_encode($estudante->getId());?>';" class="btn btn-default btn-xs">Editar</button>
